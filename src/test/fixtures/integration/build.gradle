@@ -1,0 +1,15 @@
+buildscript {
+    apply from: "../../../../gradle/dependencies.gradle"
+}
+
+allprojects {
+    repositories {
+        mavenLocal()
+        gradlePluginPortal()
+        google()
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

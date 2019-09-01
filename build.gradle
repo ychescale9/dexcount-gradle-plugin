@@ -29,6 +29,7 @@ buildscript {
 }
 
 plugins {
+    id 'java-gradle-plugin' // use TestKit for integration test
     id "com.gradle.plugin-publish" version "0.10.0"
 }
 
@@ -94,6 +95,9 @@ dependencies {
     testImplementation deps.gradle
     testImplementation deps.junit
     testImplementation deps.spockCore, { exclude module: "groovy-all" } // Use localGroovy()
+
+    // to simulate that the plugin consumer is using AGP 3.6.0
+    runtimeOnly "com.android.tools.build:gradle:3.6.0-alpha09"
 }
 
 apply from: "gradle/gradle-mvn-push.gradle"

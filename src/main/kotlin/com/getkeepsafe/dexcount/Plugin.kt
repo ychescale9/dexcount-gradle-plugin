@@ -367,7 +367,8 @@ class ThreeThreeProvider(project: Project): TaskProvider(project) {
             }
 
             val dexcountTask = createTask(ModernMethodCountTask::class, variant, output) { t ->
-                t.inputFileProvider = { File(packageTask.outputDirectory, output.outputFileName) }
+                // this is the only breaking change from 3.3 to 3.6
+                t.inputFileProvider = { File(packageTask.outputDirectory.asFile.get(), output.outputFileName) }
             }
 
             addDexcountTaskToGraph(packageTask, dexcountTask)

@@ -1,0 +1,35 @@
+plugins {
+    id 'com.android.application'
+    id 'com.getkeepsafe.dexcount'
+}
+
+android {
+    compileSdkVersion 29
+
+    defaultConfig {
+        targetSdkVersion 29
+        minSdkVersion 19
+
+        applicationId "com.getkeepsafe.dexcount.integration"
+        versionCode 1
+        versionName "1.0"
+    }
+
+    buildTypes {
+        debug {
+            minifyEnabled false
+        }
+
+        release {
+            minifyEnabled false
+        }
+    }
+}
+
+dexcount {
+    verbose = true
+}
+
+dependencies {
+    compile deps.appcompatv7
+}
